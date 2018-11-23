@@ -1,0 +1,28 @@
+{
+  "name": "todos-react",
+  "version": "1.0.0",
+  "description": "todo list in typescript using react",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "watch": "gulp watch",
+    "build": "gulp build",
+    "start": "gulp"
+  },
+  "dependencies": {
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3"
+  },
+  "devDependencies": {
+    "@types/react": "^16.7.7",
+    "@types/react-dom": "^16.0.10",
+    "awesome-typescript-loader": "^5.2.1",
+    "gulp": "^3.9.1",
+    "gulp-serve": "^1.4.0",
+    "source-map-loader": "^0.2.4",
+    "typescript": "^3.1.6",
+    "webpack": "^4.26.0",
+    "webpack-cli": "^3.1.2",
+    "webpack-stream": "^5.1.1"
+  }
+}
