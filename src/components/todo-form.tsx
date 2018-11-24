@@ -48,28 +48,24 @@ export class TodoForm extends React.Component<TodoFormProps> {
 
     return (
       <div className="row">
-        <div className="col">
-          <div className="row">
-            <div className="col">
-              <form
-                className="form-inline mx-auto"
-                onSubmit={this.handleSubmit}>
-                <div className="form-group mx-sm-3 mb-2">
-                  <input
-                    className="form-control"
-                    placeholder="What's pending?"
-                    value={title}
-                    onChange={this.handleChange}>
-                  </input>
-                </div>
-                <button
-                  type="submit"
-                  className="btn btn-sm btn-primary mb-2">
-                  Add
-                </button>
-              </form>
+        <div className="col-12">
+          <form
+            className="form-inline row mt-2 mb-2"
+            onSubmit={this.handleSubmit}>
+            <div className="form-group col w-50 ml-auto mb-2">
+              <input
+                className="form-control w-100"
+                placeholder="What's pending?"
+                value={title}
+                onChange={this.handleChange}>
+              </input>
             </div>
-          </div>
+            <button
+              type="submit"
+              className="btn btn-sm btn-primary mb-2 col-auto mr-auto px-4">
+              Add
+            </button>
+          </form>
           {errorNode}
         </div>
       </div>

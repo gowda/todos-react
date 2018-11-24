@@ -23,7 +23,7 @@ export class TodoList extends React.Component<TodoListProps> {
     });
 
     return (
-      <ul className="list-group list-group-flush">
+      <ul className="list-group list-group-flush mt-2 mb-4">
         {listItems}
       </ul>
     );

@@ -52,10 +52,11 @@ export class App extends React.Component<AppProps> {
       content = <h4 className="text-center">No items to show</h4>;
     }
 
+    
     return (
       <div>
         <div className="row">
-          <div className="col-auto mx-auto">
+          <div className="col-sm-12 col-md mx-auto">
             <TodoForm
               title={title}
               onChange={this.handleTitleChange}
@@ -64,7 +65,7 @@ export class App extends React.Component<AppProps> {
           </div>
         </div>
         <div className="row">
-          <div className="col">
+          <div className="col-sm-12 col-md">
             {content}
           </div>
         </div>
