@@ -7,5 +7,5 @@ export interface TodoProps {
 }
 
 export const Todo = (props: TodoProps) => {
-  return <h4>{props.title}</h4>;
+  return <h4 className="px-2 py-2">{props.title}</h4>;
 };
