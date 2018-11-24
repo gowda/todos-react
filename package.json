@@ -7,19 +7,34 @@
   "scripts": {
     "watch": "gulp watch",
     "build": "gulp build",
-    "start": "gulp"
+    "start": "gulp",
+    "test": "mocha --require jsdom-global/register --require ts-node/register test/**/*.test.tsx --exit"
   },
   "dependencies": {
     "react": "^16.6.3",
     "react-dom": "^16.6.3"
   },
   "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/chai-enzyme": "^0.6.5",
+    "@types/enzyme": "^3.1.15",
+    "@types/enzyme-adapter-react-16": "^1.0.3",
+    "@types/mocha": "^5.2.5",
     "@types/react": "^16.7.7",
     "@types/react-dom": "^16.0.10",
     "awesome-typescript-loader": "^5.2.1",
+    "chai": "^4.2.0",
+    "chai-enzyme": "^1.0.0-beta.1",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.7.0",
     "gulp": "^3.9.1",
     "gulp-serve": "^1.4.0",
+    "jsdom": "^13.0.0",
+    "jsdom-global": "^3.0.2",
+    "mocha": "^5.2.0",
     "source-map-loader": "^0.2.4",
+    "ts-mockito": "^2.3.1",
+    "ts-node": "^7.0.1",
     "typescript": "^3.1.6",
     "webpack": "^4.26.0",
     "webpack-cli": "^3.1.2",
