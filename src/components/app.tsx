@@ -6,7 +6,7 @@ import { TodoForm } from "./todo-form";
 interface DefaultProps {
   items: TodoProps[];
   title: string;
-  id: number;
+  idCounter: number;
 }
 
 export type AppProps = {} & Partial<DefaultProps>
@@ -15,14 +15,14 @@ export class App extends React.Component<AppProps> {
   static defaultProps: DefaultProps = {
     items: [],
     title: '',
-    id: 0
+    idCounter: 0
   };
 
   state: AppProps;
 
   constructor(props: AppProps) {
     super(props);
-    this.state = {items: props.items, id: 0, title: ''};
+    this.state = props;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleTitleChange = this.handleTitleChange.bind(this);
   }
@@ -32,11 +32,12 @@ export class App extends React.Component<AppProps> {
   }
 
   handleSubmit() {
-    var id: number = this.state.id + 1;
-    var idString: string = `${this.state.id}`;
+    var { items, idCounter } = this.state as DefaultProps;
+    var id: number = idCounter + 1;
+    var idString: string = `${id}`;
 
     this.setState({
-      items: [...this.state.items,
+      items: [...items,
         {id: idString, title: this.state.title, done: false}
       ],
       id: id,
@@ -45,8 +46,9 @@ export class App extends React.Component<AppProps> {
   }
 
   render() {
-    var content = <TodoList items={this.state.items}></TodoList>;
-    if (this.state.items.length === 0) {
+    var { items, title } = this.state as DefaultProps;
+    var content = <TodoList items={items}></TodoList>;
+    if (items.length === 0) {
       content = <h4 className="text-center">No items to show</h4>;
     }
 
@@ -55,7 +57,7 @@ export class App extends React.Component<AppProps> {
         <div className="row">
           <div className="col-auto mx-auto">
             <TodoForm
-              title={this.state.title}
+              title={title}
               onChange={this.handleTitleChange}
               onSubmit={this.handleSubmit}>
             </TodoForm>

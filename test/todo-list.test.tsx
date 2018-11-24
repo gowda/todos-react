@@ -15,11 +15,6 @@ describe('<TodoList/>', () => {
       done();
     });
 
-    after((done) => {
-      wrapper = null;
-      done();
-    });
-
     it('does not have any items', (done) => {
       expect(wrapper).to.not.have.descendants(Todo);
       done();
@@ -38,11 +33,6 @@ describe('<TodoList/>', () => {
       ];
 
       wrapper = shallow(<TodoList items={todoList}/>);
-      done();
-    });
-
-    after((done) => {
-      wrapper = null;
       done();
     });
 

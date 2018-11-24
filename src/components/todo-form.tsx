@@ -2,10 +2,10 @@ import * as React from "react";
 
 interface DefaultProps {
   title: string;
-  error: string;
 }
 
 export type TodoFormProps = {
+  error?: string;
   onChange: (title: string) => void;
   onSubmit: () => void;
 } & Partial<DefaultProps>;
@@ -13,7 +13,6 @@ export type TodoFormProps = {
 export class TodoForm extends React.Component<TodoFormProps> {
   static defaultProps: DefaultProps = {
     title: '',
-    error: null
   };
 
   props: TodoFormProps;
@@ -21,7 +20,7 @@ export class TodoForm extends React.Component<TodoFormProps> {
   constructor(props: TodoFormProps) {
     super(props);
     this.props = props;
-     this.handleChange = this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -36,12 +35,13 @@ export class TodoForm extends React.Component<TodoFormProps> {
   }
 
   render() {
-    var error = null;
-    if (this.props.error) {
-      error =
+    var { title, error } = this.props as TodoFormProps;
+    var errorNode = null;
+    if (error) {
+      errorNode =
         <div className="row">
           <div className="col">
-            <span className="text-danger">{this.props.error}</span>
+            <span className="text-danger">{error}</span>
           </div>
         </div>;
     }
@@ -58,7 +58,7 @@ export class TodoForm extends React.Component<TodoFormProps> {
                   <input
                     className="form-control"
                     placeholder="What's pending?"
-                    value={this.props.title}
+                    value={title}
                     onChange={this.handleChange}>
                   </input>
                 </div>
@@ -70,7 +70,7 @@ export class TodoForm extends React.Component<TodoFormProps> {
               </form>
             </div>
           </div>
-          {error}
+          {errorNode}
         </div>
       </div>
     );

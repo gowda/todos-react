@@ -14,11 +14,6 @@ describe('<Todo/>', () => {
     done();
   });
 
-  after((done) => {
-    wrapper = null;
-    done();
-  });
-
   it('renders a todo item title', (done) => {
     expect(wrapper.find('h4')).to.have.text(testProps.title);
     done();

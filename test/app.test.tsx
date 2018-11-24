@@ -40,7 +40,7 @@ describe('<App/>', () => {
         {id: "-3", title: "title -3", done: false },
       ],
       title: '',
-      id: 0
+      idCounter: 0
     };
 
     var wrapper: ShallowWrapper;

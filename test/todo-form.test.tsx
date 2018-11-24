@@ -2,7 +2,7 @@ import * as React from "react";
 import { shallow, ShallowWrapper, mount, ReactWrapper } from "enzyme";
 
 import { expect } from "./conf";
-import { mock, instance, verify, resetCalls } from "ts-mockito";
+import { mock, instance, verify, resetCalls, reset } from "ts-mockito";
 
 import { TodoForm, TodoFormProps } from "../src/components/todo-form";
 
@@ -34,12 +34,6 @@ describe('<TodoForm/>', () => {
       done();
     });
 
-    after((done) => {
-      testProps = null;
-      wrapper = null;
-      done();
-    });
-
     it('renders a text input field', (done) => {
       expect(wrapper).to.have.descendants('input');
       done();
@@ -61,12 +55,6 @@ describe('<TodoForm/>', () => {
       done();
     });
 
-    after((done) => {
-      testProps = null;
-      wrapper = null;
-      done();
-    });
-
     it('shows given title', (done) => {
       expect(wrapper.find('input')).to.have.value(testTitle);
       done();
@@ -82,12 +70,6 @@ describe('<TodoForm/>', () => {
         done();
       });
 
-      after((done) => {
-        testProps = null;
-        wrapper = null;
-        done();
-      });
-
       it('does not show', (done) => {
         expect(wrapper).to.not.have.descendants('span.text-danger');
         done();
@@ -100,12 +82,6 @@ describe('<TodoForm/>', () => {
         testProps = instance(mockedTodoFormProps);
         testProps.error = '';
         wrapper = shallow(<TodoForm {...testProps}/>);
-        done();
-      });
-
-      after((done) => {
-        testProps = null;
-        wrapper = null;
         done();
       });
 
@@ -125,12 +101,6 @@ describe('<TodoForm/>', () => {
         done();
       });
 
-      after((done) => {
-        testProps = null;
-        wrapper = null;
-        done();
-      });
-
       it('shows error', (done) => {
         expect(wrapper).to.have.descendants('span.text-danger');
         expect(wrapper.find('span.text-danger')).to.have.text(errorMessage);
@@ -146,12 +116,6 @@ describe('<TodoForm/>', () => {
       mockedTodoFormProps = mock(TestTodoFormProps);
       testProps = instance(mockedTodoFormProps);
       wrapper = shallow(<TodoForm {...testProps}/>);
-      done();
-    });
-
-    after((done) => {
-      testProps = null;
-      wrapper = null;
       done();
     });
 
@@ -188,12 +152,6 @@ describe('<TodoForm/>', () => {
       // Basically, events are not propagated through the DOM
       // https://github.com/airbnb/enzyme/issues/308#issuecomment-215348290
       wrapper = mount(<TodoForm {...testProps}/>);
-      done();
-    });
-
-    after((done) => {
-      testProps = null;
-      wrapper = null;
       done();
     });
 

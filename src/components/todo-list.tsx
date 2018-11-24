@@ -13,7 +13,8 @@ export class TodoList extends React.Component<TodoListProps> {
   };
 
   render() {
-    var listItems = this.props.items.map(item => {
+    var { items } = this.props as DefaultProps;
+    var listItems = items.map(item => {
       return (
         <li key={item.id} className="list-group-item">
           <Todo {...item}></Todo>
